@@ -1,96 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     SPDX-FileCopyrightText: 2014 The Android Open Source Project
-     SPDX-License-Identifier: Apache-2.0
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
+    <dimen name="btn_digit_text_size">40sp</dimen>
+    <dimen name="btn_operation_text_size">40sp</dimen>
+    <dimen name="btn_function_text_size">30sp</dimen>
+    <dimen name="btn_clear_text_size">30sp</dimen>
+    <dimen name="display_text_size">30sp</dimen>
 
-    <style name="DisplayTextStyle" parent="Widget.MaterialComponents.TextView">
-        <item name="android:cursorVisible">false</item>
-        <item name="fontFamily">sans-serif</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:gravity">bottom|end</item>
-        <item name="android:textAlignment">viewEnd</item>
-        <item name="android:fontFeatureSettings">tnum, cv03, cv04</item>
+    <style name="button_style">
+       <item name="android:textSize">40dp</item>
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:focusable">true</item>
+       <item name="android:background">@drawable/btn_function</item>
+       <item name="android:layout_marginLeft">1dp</item>
     </style>
 
-    <style name="DisplayTextStyle.Formula">
-        <item name="android:paddingTop">@dimen/formula_padding_top</item>
-        <item name="android:paddingBottom">@dimen/formula_padding_bottom</item>
-        <item name="android:paddingStart">@dimen/formula_padding_start</item>
-        <item name="android:paddingEnd">@dimen/formula_padding_end</item>
-        <item name="android:gravity">bottom</item>
-        <item name="minTextSize">@dimen/formula_min_textsize</item>
-        <item name="maxTextSize">@dimen/formula_max_textsize</item>
-        <item name="stepTextSize">@dimen/formula_step_textsize</item>
-        <item name="android:fontFeatureSettings">tnum, cv03, cv04</item>
+    <style name="digit_button_style" parent="button_style">
+       <item name="android:background">@drawable/btn_digit</item>
     </style>
 
-    <style name="DisplayTextStyle.Result">
-        <item name="android:paddingTop">@dimen/result_padding_top</item>
-        <item name="android:paddingBottom">@dimen/result_padding_bottom</item>
-        <item name="android:paddingStart">@dimen/result_padding_start</item>
-        <item name="android:paddingEnd">@dimen/result_padding_end</item>
-        <item name="android:gravity">bottom</item>
-        <item name="android:textSize">@dimen/result_textsize</item>
-        <item name="android:fontFeatureSettings">tnum, cv03, cv04</item>
+    <style name="button_small_style" parent="button_style">
+       <item name="android:textSize">30dp</item>
     </style>
 
-    <style name="HistoryItemTextStyle" parent="DisplayTextStyle">
-        <item name="android:layout_gravity">bottom|end</item>
-        <item name="android:paddingTop">@dimen/history_item_text_padding_top</item>
-        <item name="android:paddingBottom">@dimen/history_item_text_padding_bottom</item>
-        <!-- Note: result_padding_start == formula_padding_start. -->
-        <item name="android:paddingStart">@dimen/result_padding_start</item>
-        <item name="android:paddingEnd">@dimen/result_padding_end</item>
-        <item name="android:textSize">@dimen/result_textsize</item>
+    <style name="display_style">
+       <item name="android:textSize">@dimen/display_text_size</item>
+       <item name="android:inputType">text|textNoSuggestions</item>
+       <item name="android:gravity">right|center_vertical</item>
+       <item name="android:textColor">#ffffff</item>
+       <item name="android:maxLines">1</item>
+       <item name="android:scrollbars">none</item>
+       <item name="android:scrollHorizontally">true</item>
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:paddingTop">8dp</item>
+       <item name="android:paddingLeft">8dp</item>
+       <item name="android:paddingRight">8dp</item>
+       <item name="android:paddingBottom">0dp</item>
     </style>
 
-    <style name="PadButtonStyle" parent="Widget.Material3.Button">
-        <item name="android:layout_width">0dip</item>
-        <item name="android:layout_height">0dip</item>
-        <item name="android:gravity">center</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:padding">0dp</item>
-        <item name="android:textSize">@dimen/button_textsize</item>
-        <item name="android:onClick">onButtonClick</item>
-        <item name="android:fontFeatureSettings">tnum, cv03, cv04</item>
-        <item name="android:layout_marginHorizontal">@dimen/button_horizontal_margin</item>
+    <style name="btn_row_style">
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:orientation">horizontal</item>
     </style>
 
-    <style name="PadButtonStyle.Caps">
-        <item name="textAllCaps">true</item>
+    <style name="btn_function_cell_style">
+       <item name="android:layout_width">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:background">@drawable/btn_function</item>
+       <item name="android:textSize">@dimen/btn_function_text_size</item>
     </style>
 
-    <style name="PadButtonStyle.Image">
-        <item name="iconGravity">textStart</item>
-        <item name="iconPadding">0dp</item>
-        <item name="iconSize">@dimen/button_iconsize</item>
+    <style name="btn_operation_cell_style">
+       <item name="android:layout_width">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:gravity">center</item>
+       <item name="android:background">@drawable/btn_function</item>
+       <item name="android:textSize">@dimen/btn_operation_text_size</item>
     </style>
 
-    <style name="PadButtonStyle.SmallCaps">
-        <item name="textAllCaps">true</item>
-        <item name="android:textSize">@dimen/button_smallcaps_textsize</item>
-        <item name="android:layout_marginHorizontal">@dimen/button_small_horizontal_margin</item>
+    <style name="btn_digit_cell_style">
+       <item name="android:layout_width">0dip</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:layout_height">match_parent</item>
+       <item name="android:gravity">center</item>
+       <item name="android:background">@drawable/btn_digit</item>
+       <item name="android:textSize">@dimen/btn_digit_text_size</item>
     </style>
 
-    <style name="PadButtonStyle.SmallText">
-        <item name="android:textSize">@dimen/button_small_textsize</item>
-        <item name="android:layout_marginHorizontal">@dimen/button_small_horizontal_margin</item>
+    <style name="btn_clear">
+       <item name="android:background">?android:attr/selectableItemBackground</item>
+       <item name="android:textSize">@dimen/btn_clear_text_size</item>
     </style>
-
-    <style name="PadLayoutStyle">
-        <item name="android:paddingTop">@dimen/pads_intra_padding</item>
-        <item name="android:paddingBottom">@dimen/pads_vertical_edge_padding</item>
-        <item name="android:paddingStart">@dimen/pads_horizontal_edge_padding</item>
-        <item name="android:paddingEnd">@dimen/pads_horizontal_edge_padding</item>
-    </style>
-
-    <style name="PadLayoutStyle.Advanced">
-        <item name="android:paddingTop">@dimen/pads_vertical_edge_padding</item>
-        <item name="android:paddingBottom">@dimen/pads_intra_padding</item>
-        <item name="android:paddingStart">@dimen/pads_horizontal_edge_padding</item>
-        <item name="android:paddingEnd">@dimen/pads_horizontal_edge_padding</item>
-    </style>
-
 </resources>
